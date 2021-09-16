@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<h1>La calculadora</h1>
+<p id="resultatSuma"></p>
+<p id="resultatResta"></p>
+<p id="resultatMultiplica"></p>
+<p id="resultatDivisio"></p>
+
+    <script text="javascript">
+        /* exercici 1: retorna a consola */
+        console.log('Hola Món');
+
+        /* exercici 2: alerta del meu nom */
+        alert('Em dic Jordi!');
+
+        /* exercici 3: crea una variable pel nom i una pel cognom */
+        let nom ='Jordi';
+        let cognom = 'Riera'
+        console.log(`${nom} ${cognom}`);
+
+        /* exercici 4: crear dos variables numeriques i sumarles */
+        let numero1=(Math.random()*50).toFixed(2);
+        let numero2=(Math.random()*50).toFixed(2);
+        let resultat=parseFloat(numero1) + parseFloat(numero2);
+        console.log(`La suma entre ${numero1} i ${numero2} es: ${resultat}`);
+
+        /* exercici 5:crea una variable nota i informar si ha aprovat */
+        let nota=(Math.random()*10).toFixed(2);
+        if(nota>=5){
+            alert(`Has aprovat amb una nota de ${nota}`);
+        }
+        else {
+            alert(`Ho sentim molt has suspes amb una nota de ${nota}`)
+        }
+
+        /* exercici 6: remplaça paraules i vocals*/
+        let text ='Tinc un cotxe de color blau';
+        let esVerd = text.replace('blau','verd');
+        console.log(esVerd);
+        let ambU = text.replace(/o/g,'u');
+        console.log(ambU);
+
+        /* exercici 7: iteracio d'un array */
+        const objectes = ['taula','cadira','ordinador','llibreta'];
+        let index = 0;
+        for(let element of objectes){
+                console.log(`L'objecte ${element} es troba en la posicio ${index}`)
+                index++;
+        }
+
+        /* exercici 8: calculadora simple, per pantalla */
+        const calculadora = (val1,val2,operador) =>{
+            if(operador ==='suma'){
+                let sumaResultat = parseFloat(val1)+parseFloat(val2);
+                document.getElementById('resultatSuma').innerHTML=`La suma te com a resultat ${sumaResultat}`;
+                
+            }
+
+            else if(operador==='resta'){
+                let restaResultat = parseFloat(val1) - parseFloat(val2);
+                document.getElementById('resultatResta').innerHTML=`La resta te com a resultat ${restaResultat}`
+            }
+
+            else if(operador==='multiplica'){
+                let multiplicaResultat = parseFloat(val1) * parseFloat(val2);
+                document.getElementById('resultatMultiplica').innerHTML=`La multiplicació te com a resultat ${multiplicaResultat}`
+            }
+
+            else if(operador==='divisio'){
+                if(val2!=0){
+                    let divisioResultat = parseFloat(val1) / parseFloat(val2);
+                    document.getElementById('resultatDivisio').innerHTML=`La resta te com a resultat ${divisioResultat}`
+                }
+
+                else{
+                    document.getElementById('resultatDivisio').innerHTML=`El divisor es 0, per tant la divisio es indeterminada`
+                }
+                
+            }
+        }
+
+        calculadora(1,2,'suma');
+        calculadora(3,5,'resta')
+        calculadora(2,5,'multiplica')
+        calculadora(6,0,'divisio');
+
+
+        
+
+        
+
+    </script>
+</body>
+</html>
